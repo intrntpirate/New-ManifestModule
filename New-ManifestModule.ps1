@@ -113,8 +113,13 @@
 		[string]$CertificateThumbprint,
 		#Specify the URL of a time stamp service to use while digitally signing the Manifest Module.
 		[string]$TimeStampURL,
-		[switch]$Confirm
+		[switch]$Confirm,
+		[switch]$WhatIf
 	)
+	If ($WhatIf.IsPresent)
+	{
+		$WhatIfPreference = $true
+	}
 	function Helper-GenerateArrayString
 	{
 		param (
